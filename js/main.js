@@ -44,9 +44,9 @@ for(let i = 0; i < arreyDiscount.length; i++){
             document.getElementById("original_price").innerHTML = notDiscountPrice.toFixed(2);
             document.getElementById("final_price").innerHTML = discountedPrice.toFixed(2);
             discountNotUsed[i] = false;
+            }
         }
-}
-}
+    }
 }
 else{
     alert("codice sconto non valido")
