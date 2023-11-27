@@ -23,19 +23,16 @@ function calculateOffer(event){
         console.log(notDiscountPrice);
     }
 
-    let checkDiscount = true;
+    let checkValidity = true;
 
-    for(let i = 0; i < discountNotUsed.length; i++){
-         if(discountNotUsed[i] ==false){
-            checkDiscount = false; 
-         }
-    }
+   
 
 if(chooseDiscount == ""){
     document.getElementById("final_price").innerHTML = notDiscountPrice.toFixed(2);
     document.getElementById("original_price").innerHTML = "";
+    checkValidity = false;
 }
-else if (checkDiscount == false){
+else{
 for(let i = 0; i < arreyDiscount.length; i++){
     if (!discountNotUsed[i]){alert("Ah furbetto hai provato a inserire di nuovo il codice eh!")}
     else{
@@ -44,11 +41,20 @@ for(let i = 0; i < arreyDiscount.length; i++){
             document.getElementById("original_price").innerHTML = notDiscountPrice.toFixed(2);
             document.getElementById("final_price").innerHTML = discountedPrice.toFixed(2);
             discountNotUsed[i] = false;
+            console.log(discountNotUsed[i])
             }
         }
     }
 }
-else{
+ 
+for(let i = 0; i < discountNotUsed.length; i++){
+         if(discountNotUsed[i] ==false){
+            checkValidity = false; 
+         }
+    }
+
+
+if ( checkValidity == true){
     alert("codice sconto non valido")
     document.getElementById("final_price").innerHTML = notDiscountPrice.toFixed(2);
     document.getElementById("original_price").innerHTML = "";
